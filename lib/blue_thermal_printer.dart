@@ -62,32 +62,40 @@ class BlueThermalPrinter {
     return list.map((map) => BluetoothDevice.fromMap(map)).toList();
   }
 
-//  Future<dynamic> connect(BluetoothDevice device) =>
-//      _channel.invokeMethod('connect', device.toMap());
-//
-//  Future<dynamic> disconnect() => _channel.invokeMethod('disconnect');
-//
-//  Future<dynamic> write(String message) =>
-//      _channel.invokeMethod('write', {'message': message});
-//
-//  Future<dynamic> writeBytes(Uint8List message) =>
-//      _channel.invokeMethod('writeBytes', {'message': message});
-//
-//  Future<dynamic> printCustom(String message,int size, int align) =>
-//      _channel.invokeMethod('printCustom', {'message': message, 'size': size, 'align': align});
-//
-//  Future<dynamic> printNewLine() => _channel.invokeMethod('printNewLine');
-//
-//  Future<dynamic> paperCut() => _channel.invokeMethod('paperCut');
-//
-//  Future<dynamic> printImage(String pathImage) =>
-//      _channel.invokeMethod('printImage', {'pathImage': pathImage});
-//
-//  Future<dynamic> printQRcode(String textToQR, int width, int height, int align) =>
-//      _channel.invokeMethod('printQRcode', {'textToQR': textToQR, 'width': width, 'height': height, 'align': align});
-//
-//  Future<dynamic> printLeftRight(String string1,String string2,int size) =>
-//      _channel.invokeMethod('printLeftRight', {'string1': string1, 'string2': string2,'size': size });
+  Future<dynamic> connect(BluetoothDevice device) =>
+      _channel.invokeMethod('connect', device.toMap());
+
+  Future<dynamic> disconnect() => _channel.invokeMethod('disconnect');
+
+  Future<dynamic> write(String message) =>
+      _channel.invokeMethod('write', {'message': message});
+
+  Future<dynamic> writeBytes(Uint8List message) =>
+      _channel.invokeMethod('writeBytes', {'message': message});
+
+  Future<dynamic> printCustom(String message, int size, int align) =>
+      _channel.invokeMethod(
+          'printCustom', {'message': message, 'size': size, 'align': align});
+
+  Future<dynamic> printNewLine() => _channel.invokeMethod('printNewLine');
+
+  Future<dynamic> paperCut() => _channel.invokeMethod('paperCut');
+
+  Future<dynamic> printImage(String pathImage) =>
+      _channel.invokeMethod('printImage', {'pathImage': pathImage});
+
+  Future<dynamic> printQRcode(
+          String textToQR, int width, int height, int align) =>
+      _channel.invokeMethod('printQRcode', {
+        'textToQR': textToQR,
+        'width': width,
+        'height': height,
+        'align': align
+      });
+
+  Future<dynamic> printLeftRight(String string1, String string2, int size) =>
+      _channel.invokeMethod('printLeftRight',
+          {'string1': string1, 'string2': string2, 'size': size});
 }
 
 class BluetoothDevice {

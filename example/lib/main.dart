@@ -21,14 +21,14 @@ class _MyAppState extends State<MyApp> {
   BluetoothDevice _device;
   bool _connected = false;
   String pathImage;
-  // TestPrint testPrint;
+  TestPrint testPrint;
 
   @override
   void initState() {
     super.initState();
     initPlatformState();
     initSavetoPath();
-    // testPrint = TestPrint();
+    testPrint = TestPrint();
   }
 
   initSavetoPath() async {
@@ -155,7 +155,7 @@ class _MyAppState extends State<MyApp> {
                   child: RaisedButton(
                     color: Colors.brown,
                     onPressed: () {
-                      // testPrint.sample(pathImage);
+                      testPrint.sample(pathImage);
                     },
                     child: Text('PRINT TEST',
                         style: TextStyle(color: Colors.white)),
@@ -191,19 +191,19 @@ class _MyAppState extends State<MyApp> {
       show('No device selected.');
     } else {
       bluetooth.isConnected.then((isConnected) {
-//        if (!isConnected) {
-//          bluetooth.connect(_device).catchError((error) {
-//            setState(() => _connected = false);
-//          });
-//          setState(() => _connected = true);
-//        }
+        if (!isConnected) {
+          bluetooth.connect(_device).catchError((error) {
+            setState(() => _connected = false);
+          });
+          setState(() => _connected = true);
+        }
       });
     }
   }
 
   void _disconnect() {
-//    bluetooth.disconnect();
-//    setState(() => _connected = true);
+    bluetooth.disconnect();
+    setState(() => _connected = true);
   }
 
 //write to app path
